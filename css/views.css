@@ -1,0 +1,33 @@
+html{
+	height: 100%;
+}
+
+body {
+	height: 100%;
+}
+
+.carousel.slide {
+  max-width: 350px;
+  height: 100%;
+  margin: auto;
+}
+
+.carousel-inner {
+	height: 100%;
+}
+
+.carousel-item{
+	height: 100%;
+}
+
+.container {
+	height: 85%;
+}
+
+.row {
+	height: 100%;
+}
+
+.row > div {
+	height: 100%;
+}

@@ -1,0 +1,203 @@
+<!--#include file="blocks/head.html"-->
+<title>Краткая история</title>
+<style>
+    .people__layout {
+        width: 100%;
+        flex: 1 1 auto;
+        display: flex;
+    }
+
+    .people-list-wrap {
+        border-right: 1px solid #ced4da;
+        padding: 0;
+        background-color: #f9f9f9;
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .people-list {
+        flex: 1 1 auto;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .people-list p {
+        padding: 5px 20px;
+        margin: 0;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 300;
+        transition: background-color ease .2s;
+    }
+
+    .people-list p:hover {
+        background-color: #f3f3f3;
+    }
+
+    .active {
+        background-color: #f4f4f4;
+    }
+
+    .people-filters {
+        margin: 10px 0;
+        padding: 0 20px;
+        border-bottom: 1px solid #ced4da;
+    }
+
+    .people-filters__label {
+        margin-bottom: 5px;
+        font-size: 12px;
+    }
+
+    .person {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .person__scroll {
+        overflow: auto;
+        flex: 1 1 auto;
+    }
+
+    .person__inner {
+        padding: 20px 20px 15px;
+    }
+
+    .person__title {
+        font-weight: bold;
+        font-size: 32px;
+        margin-bottom: 25px;
+    }
+
+    .person__photo {
+        float: right;
+        display: block;
+        margin: 0 auto 25px;
+        max-width: 300px;
+        width: 100%;
+    }
+
+    .mobile-back-button {
+        display: none;
+        position: absolute;
+        padding: 40px 12px 15px;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+    }
+
+    .mobile-back-button svg {
+        display: block;
+        fill: #000;
+        width: 15px;
+        height: 15px;
+    }
+
+    h6 {
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    @-moz-document url-prefix() {
+        .people-list-wrap {
+            height: 517px;
+        }
+        .person {
+            height: 517px;
+        }
+    }
+
+    @media(max-width: 575px) {
+        .mobile-back-button {
+            display: block;
+        }
+        .i-mobile-hidden {
+            display: none;
+        }
+        .person {
+            font-size: 14px;
+        }
+        .person__inner {
+            padding: 40px;
+        }
+    }
+</style>
+<script>$(document).ready(function () {
+        $(".image-modal").fancybox();
+    }); 
+</script>
+<link rel="stylesheet" type="text/css" href="/fancybox/jquery.fancybox.min.css" />
+<script src="js/hist.js"></script>
+<link rel="stylesheet" href="css/animate.css">
+</head>
+
+<body>
+    <div class="root root--fixed">
+        <!--#include file="blocks/header.html"-->
+        <div class="people__layout">
+            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 people-list-wrap">
+                <div class="people-filters">
+                    <div class="form-group">
+                        <div class="people-filters__label">Раздел:</div>
+                        <select class="form-control js-people-filter">
+                            <option value="0">История</option>
+                            <option value="1">Краткие очерки</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="people-list">
+                    <div class="js-people-list"></div>
+                </div>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-8 col-xs-6 person i-mobile-hidden">
+                <div class="mobile-back-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 408 408">
+                        <g width="100%" height="100%">
+                            <path d="M408 178.5H96.9L239.7 35.7 204 0 0 204l204 204 35.7-35.7L96.9 229.5H408v-51z" />
+                        </g>
+                    </svg>
+                </div>
+                <div class="person__scroll">
+                    <div class="title" style="margin-left: 20px; margin-top: 15px;"></div>
+                    <div id="carouselExampleControls" style="float: right" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner" role="listbox">
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Предыдущая</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Следущая</span>
+                        </a>
+                    </div>
+                    <div class="person__inner js-person-data"></div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer footer--no-fixed">
+            <p style="margin-bottom: 0; float:right; inline-block;">©Моисеенко В.И.
+            </p>
+            <div style="float: left;">
+                <!--LiveInternet counter-->
+                <script type="text/javascript">
+                    document.write("<a href='//www.liveinternet.ru/click' " +
+                        "target=_blank><img src='//counter.yadro.ru/hit?t26.4;r" +
+                        escape(document.referrer) + ((typeof (screen) == "undefined") ? "" :
+                            ";s" + screen.width + "*" + screen.height + "*" + (screen.colorDepth ?
+                                screen.colorDepth : screen.pixelDepth)) + ";u" + escape(document.URL) +
+                        ";h" + escape(document.title.substring(0, 150)) + ";" + Math.random() +
+                        "' alt='' title='LiveInternet: показано число посетителей за" +
+                        " сегодня' " +
+                        "border='0' width='88' height='15'><\/a>")
+                </script>
+                <!--/LiveInternet-->
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

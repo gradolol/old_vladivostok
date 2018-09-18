@@ -1,0 +1,56 @@
+<!--#include file="blocks/head.html"-->
+<title>Старый Владивосток</title>
+<meta name="yandex-verification" content="440570ac75677b73" />
+</head>
+
+<body>
+
+  <div class="root">
+
+    <main role="main" class="main">
+
+      <div class="main__bg">
+        <div></div>
+
+        <div class="main__content">
+          <div class="main__title">История Старого Владивостока</div>
+          <div class="main__subtitle">1860 – 1920</div>
+
+          <div class="main__nav">
+            <a href="people.shtml" class="main__nav-link">Люди</a>
+            <a href="objects.shtml" class="main__nav-link">Городские объекты</a>
+            <a href="history.shtml" class="main__nav-link">История</a>
+            <a href="views.shtml" class="main__nav-link">Виды</a>
+            <a href="about.shtml" class="main__nav-link">О проекте</a>
+
+          </div>
+        </div>
+
+        <div class="main__footer">
+          <div>Все права защищены (с) 2018</div>
+          <div>Моисеенко В.И.</div>
+          <div style="float: right;">
+            <!--LiveInternet counter-->
+            <script type="text/javascript">
+              document.write("<a href='//www.liveinternet.ru/click' " +
+                "target=_blank><img src='//counter.yadro.ru/hit?t26.4;r" +
+                escape(document.referrer) + ((typeof (screen) == "undefined") ? "" :
+                  ";s" + screen.width + "*" + screen.height + "*" + (screen.colorDepth ?
+                    screen.colorDepth : screen.pixelDepth)) + ";u" + escape(document.URL) +
+                ";h" + escape(document.title.substring(0, 150)) + ";" + Math.random() +
+                "' alt='' title='LiveInternet: показано число посетителей за" +
+                " сегодня' " +
+                "border='0' width='88' height='15'><\/a>")
+            </script>
+            <!--/LiveInternet-->
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+</body>
+
+</html>

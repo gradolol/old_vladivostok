@@ -1,0 +1,43 @@
+<div class="row" style=" margin: 0px;">
+    <div id="parent" class="col-lg-6" style="z-index: 1000; width: 400px; background-color: white; overflow: auto; -webkit-box-shadow: 6px 0px 14px 0px rgba(0,0,0,0.75); -moz-box-shadow: 6px 0px 14px 0px rgba(0,0,0,0.75); box-shadow: 6px 0px 14px 0px rgba(0,0,0,0.75);">
+        <ul class="nav nav-tabs">
+            <li id="show-streets" class="active">
+                <a data-toggle="tab" href="#panel1" onclick="clearMap();">Улицы</a>
+            </li>
+            <li id="show-info">
+                <a data-toggle="tab" href="#panel2" onclick="setMarkers();">Все дома</a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="panel1" class="tab-pane fade in active">
+                <div id="streets" onload=""></div>
+            </div>
+            <div id="panel2" class="tab-pane fade">
+                <div id="buildings"></div>
+                <a id="btn-primary" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal" style="display: none;">войти</a>
+            </div>
+        </div>
+
+    </div>
+    <div id="map_canvas" class="col-lg-6"></div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Описание здания</h4>
+            </div>
+            <div class="modal-body">
+                <div id="test"></div>
+                <div id="info"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>

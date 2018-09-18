@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+  <link href="bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/animate.css">
+  <link href="css/views.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/fancybox/jquery.fancybox.min.css" />
+  <script type="text/javascript" src="fancybox/jquery.fancybox.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/views.js" charset="utf-8"></script>
+  <title>Виды</title>
+</head>
+
+<body onload="initializeMap();">
+  <div class="root">
+    <!--#include file="blocks/header.html"-->
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-xs-12 col-ms-12 ">
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Предыдущая</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Следущая</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <p align="right" style="margin-bottom: 0;">©Моисеенко В.И.
+      </p>
+    </footer>
+  </div>
+</body>
+
+</html>

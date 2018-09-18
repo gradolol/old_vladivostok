@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+  <link href="bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/animate.css">
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/fancybox/jquery.fancybox.min.css" />
+  <script type="text/javascript" src="fancybox/jquery.fancybox.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD84OodGb21nKUZazLI753_CP8xZA1rM5M" type="text/javascript"></script>
+  <title>Городские объекты</title>
+  <script>$(document).ready(function () {
+      $(".image-modal").fancybox();
+    }); 
+  </script>
+  <script src="js/cityObj.js" charset="utf-8"></script>
+</head>
+
+<body onload="initializeMap();" style="margin: 0px; padding: 0; overflow: hidden;">
+  <div class="root">
+    <!--#include file="blocks/header.html"-->
+
+    <div style=" margin: 0px; max-height: 2%;" class="row">
+      <div id="parent" class="col-lg-2 col-md-3" style="z-index: 1000; background-color: white;">
+        <div>
+          <ul class="nav nav-tabs" style="background-color: #f9f9f9">
+            <li class="nav-item">
+              <a id="show-buildings" class="nav-link" data-toggle="tab" href="#panel2" onclick="chooseBuildings();">Все дома</a>
+						</li>
+            <li class="nav-item">
+              <a id="show-streets" class="nav-link active" data-toggle="tab" href="#panel1" onclick="chooseStreets();">Улицы</a>
+            </li>
+          </ul>
+        </div>
+        <div id="tab-content" class="tab-content" style="overflow: auto; height: 95%">
+          <div id="panel2" class="tab-pane fade">
+            <div id="buildings" class="buildings"></div>
+          </div>
+          <div id="panel1" class="tab-pane fade show active">
+            <div id="streets" class="streets"></div>
+          </div>
+        </div>
+
+      </div>
+      <div id="map_canvas" class="col-lg-10 col-md-9 map_telephone_invizible"></div>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Описание здания</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner" role="listbox">
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Предыдущая</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Следущая</span>
+              </a>
+            </div>
+            <div class="test"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="button-hide button-visible">
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 408 408">
+        <g width="100%" height="100%">
+          <path d="M408 178.5H96.9L239.7 35.7 204 0 0 204l204 204 35.7-35.7L96.9 229.5H408v-51z" />
+        </g>
+      </svg>
+    </div>
+    <footer class="footer" style="border-top: 1px solid #ced4da;">
+      <p style="margin-bottom: 0; float:right; inline-block;">©Моисеенко В.И.
+      </p>
+      <div style="float: left;">
+        <!--LiveInternet counter-->
+        <script type="text/javascript">
+          document.write("<a href='//www.liveinternet.ru/click' " +
+            "target=_blank><img src='//counter.yadro.ru/hit?t26.4;r" +
+            escape(document.referrer) + ((typeof (screen) == "undefined") ? "" :
+              ";s" + screen.width + "*" + screen.height + "*" + (screen.colorDepth ?
+                screen.colorDepth : screen.pixelDepth)) + ";u" + escape(document.URL) +
+            ";h" + escape(document.title.substring(0, 150)) + ";" + Math.random() +
+            "' alt='' title='LiveInternet: показано число посетителей за" +
+            " сегодня' " +
+            "border='0' width='88' height='15'><\/a>")
+        </script>
+        <!--/LiveInternet-->
+    </footer>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,232 @@
+<!--#include file="blocks/head.html"-->
+<style>
+  .people__layout {
+    width: 100%;
+    flex: 1 1 auto;
+    display: flex;
+  }
+
+  .people-list-wrap {
+    border-right: 1px solid #ced4da;
+    padding: 0;
+    background-color: #f9f9f9;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @-moz-document url-prefix() {
+    .people-list-wrap {
+      height: 517px;
+    }
+    .person {
+      height: 517px;
+    }
+  }
+
+  .people-list {
+    flex: 1 1 auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .people-list p {
+    padding: 5px 20px;
+    margin: 0;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 300;
+    transition: background-color ease .2s;
+  }
+
+  .people-list p:hover {
+    background-color: #f3f3f3;
+  }
+
+  .active {
+    background-color: #f4f4f4;
+  }
+
+  .people-filters {
+    margin: 10px 0;
+    padding: 0 20px;
+    border-bottom: 1px solid #ced4da;
+  }
+
+  .people-filters__label {
+    margin-bottom: 5px;
+    font-size: 12px;
+  }
+
+  .person {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+
+
+  .person__scroll {
+    overflow: auto;
+    flex: 1 1 auto;
+  }
+
+  .person__inner {
+    padding: 20px 20px 15px;
+    text-align: justify;
+  }
+
+  .person__title {
+    font-weight: bold;
+    font-size: 32px;
+    margin-bottom: 25px;
+  }
+
+  .person__photo {
+    float: right;
+    padding: 0 20px;
+    display: block;
+    margin: 0 auto 25px;
+    max-width: 300px;
+    width: 100%;
+  }
+
+  .mobile-back-button {
+    display: none;
+    position: absolute;
+    padding: 40px 12px 15px;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+  }
+
+  .mobile-back-button svg {
+    display: block;
+    fill: #000;
+    width: 15px;
+    height: 15px;
+  }
+
+  h6 {
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+
+  @media(max-width: 575px) {
+    .mobile-back-button {
+      display: block;
+    }
+    .i-mobile-hidden {
+      display: none;
+    }
+    .person {
+      font-size: 14px;
+    }
+    .person__inner {
+      padding: 40px;
+    }
+  }
+</style>
+<title>История в лицах</title>
+<script>$(document).ready(function () {
+    $(".image-modal").fancybox();
+  }); 
+</script>
+<script src="js/people.js" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="/fancybox/jquery.fancybox.min.css" />
+
+
+</head>
+
+<body>
+  <div class="root root--fixed">
+    <!--#include file="blocks/header.html"-->
+    <div class="people__layout">
+      <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 people-list-wrap">
+        <div class="people-filters">
+          <div class="form-group">
+            <div class="people-filters__label">Поиск:</div>
+            <input type="text" class="form-control js-people-search">
+          </div>
+          <div class="form-group">
+            <div class="people-filters__label">Категория:</div>
+            <select class="form-control js-people-filter">
+              <option value="0">Все</option>
+              <option value="1">Военные</option>
+              <option value="2">Гражданские</option>
+              <option value="3">Иностранцы</option>
+            </select>
+          </div>
+        </div>
+        <div class="people-list">
+          <div class="js-people-list"></div>
+        </div>
+      </div>
+      <div class="col-lg-10 col-md-10 col-sm-8 col-xs-6 person i-mobile-hidden">
+        <div class="mobile-back-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 408 408">
+            <g width="100%" height="100%">
+              <path d="M408 178.5H96.9L239.7 35.7 204 0 0 204l204 204 35.7-35.7L96.9 229.5H408v-51z" />
+            </g>
+          </svg>
+        </div>
+        <div class="person__scroll">
+          <div class="person__inner js-person-data"></div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Описание здания</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner" role="listbox">
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Предыдущая</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Следущая</span>
+              </a>
+            </div>
+            <div class="test"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer footer--no-fixed">
+      <p style="margin-bottom: 0; float:right; inline-block;">©Моисеенко В.И.
+      </p>
+      <div style="float: left;">
+        <!--LiveInternet counter-->
+        <script type="text/javascript">
+          document.write("<a href='//www.liveinternet.ru/click' " +
+            "target=_blank><img src='//counter.yadro.ru/hit?t26.4;r" +
+            escape(document.referrer) + ((typeof (screen) == "undefined") ? "" :
+              ";s" + screen.width + "*" + screen.height + "*" + (screen.colorDepth ?
+                screen.colorDepth : screen.pixelDepth)) + ";u" + escape(document.URL) +
+            ";h" + escape(document.title.substring(0, 150)) + ";" + Math.random() +
+            "' alt='' title='LiveInternet: показано число посетителей за" +
+            " сегодня' " +
+            "border='0' width='88' height='15'><\/a>")
+        </script>
+        <!--/LiveInternet-->
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>
